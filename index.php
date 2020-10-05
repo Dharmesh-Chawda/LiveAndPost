@@ -1,49 +1,27 @@
 <?php
-include("../config/db.php");
+include("config/db.php");
 
 if (isset($_POST["register"])) {
-    $errors = "";
-    $username = "";
-    $password = "";
-    if ($_POST['username'] != "") {
-        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-        if ($username == "") {
-            $errors .= 'Please enter a valid name.<br/><br/>';
-        }
-    } else {
-        $errors .= 'Please enter a Username.<br/><br/>';
-    }
-
-    if ($_POST['email'] != "") {
-        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        if ($email == "") {
-            $errors .= 'Please enter a valid email.<br/><br/>';
-        }
-    } else {
-        $errors .= 'Please enter your email address.<br/><br/>';
-    }
-
-    if ($_POST["password"] != "") {
-        $password = $_POST["password"];
-    } else {
-        $errors .= "Please enter a password.<br/><br/>";
-    }
-
-    if (!$errors) {
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    if ($username != '' && $email != '' && $password != '') {
         $password_hash = sha1($password);
-        $sql = "INSERT INTO users (username, email, password,user_role) VALUES ('$username', '$email', '$password_hash',1)";
+        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
         $query = $conn->query($sql);
         if ($query) {
             header('Location:login.php');
         } else {
             $error = "Failed to register";
         }
+    } else {
+        $error = "Please fill all details";
     }
 }
 ?>
-<?php include("../inc/header.php") ?>
+<?php include("inc/header.php") ?>
 <div class="container">
-    <form action="register.php" method="POST" class="form-horizontal">
+    <form action="index.php" method="POST" class="form-horizontal">
         <fieldset>
             <legend>Regitration</legend>
             <div class="row">
@@ -96,7 +74,7 @@ if (isset($_POST["register"])) {
                         <?php if (isset($_POST['register'])) : ?>
                             <div class="alert alert-dismissible alert-warning">
                                 <p>
-                                    <?php echo $errors; ?>
+                                    <?php echo $error; ?>
                                 </p>
                             </div>
                         <?php endif; ?>
@@ -106,4 +84,4 @@ if (isset($_POST["register"])) {
         </fieldset>
     </form>
 </div>
-<?php include("../inc/footer.php") ?>
+<?php include("inc/footer.php") ?>
