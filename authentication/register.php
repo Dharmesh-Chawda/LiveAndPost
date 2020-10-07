@@ -1,10 +1,11 @@
 <?php
 include("../config/db.php");
-
+$errors = "";
+$username = "";
+$password = "";
+$email = "";
 if (isset($_POST["register"])) {
-    $errors = "";
-    $username = "";
-    $password = "";
+
     if ($_POST['username'] != "") {
         $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
         if ($username == "") {
@@ -16,7 +17,7 @@ if (isset($_POST["register"])) {
 
     if ($_POST['email'] != "") {
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        if ($email == "") {
+        if ($email == "" || filter_var($email, FILTER_VALIDATE_EMAIL) === true) {
             $errors .= 'Please enter a valid email.<br/><br/>';
         }
     } else {
@@ -34,6 +35,10 @@ if (isset($_POST["register"])) {
         $sql = "INSERT INTO users (username, email, password,user_role) VALUES ('$username', '$email', '$password_hash',1)";
         $query = $conn->query($sql);
         if ($query) {
+            $errors = "";
+            $username = "";
+            $password = "";
+            $email = "";
             header('Location:login.php');
         } else {
             $error = "Failed to register";
@@ -51,7 +56,7 @@ if (isset($_POST["register"])) {
                     <div class="form-group">
                         <label for="username" class="col-lg-2 col-form-label">Username</label>
                         <div class="col-lg-10">
-                            <input type="text" name="username" class="form-control">
+                            <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                         </div>
                     </div>
                 </div>
@@ -62,7 +67,7 @@ if (isset($_POST["register"])) {
                     <div class="form-group">
                         <label for="email" class="col-lg-2 col-form-label">Email</label>
                         <div class="col-lg-10">
-                            <input type="email" name="email" class="form-control">
+                            <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
                         </div>
                     </div>
                 </div>
