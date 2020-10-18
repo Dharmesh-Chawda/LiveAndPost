@@ -12,6 +12,8 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a href="#" class="navbar-brand">Live & Blog</a>
+        <div class="col-lg-10">
+            <a href="#" class="navbar-brand" style="color:#fff">Live & Blog</a>
+        </div>
     </nav>
 </body>

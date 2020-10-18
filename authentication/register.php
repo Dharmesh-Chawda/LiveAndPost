@@ -39,7 +39,7 @@ if (isset($_POST["register"])) {
             $username = "";
             $password = "";
             $email = "";
-            header('Location:login.php');
+            header('Location:../login.php');
         } else {
             $error = "Failed to register";
         }
