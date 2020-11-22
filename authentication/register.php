@@ -32,7 +32,7 @@ if (isset($_POST["register"])) {
 
     if (!$errors) {
         $password_hash = sha1($password);
-        $sql = "INSERT INTO users (username, email, password,user_role) VALUES ('$username', '$email', '$password_hash',1)";
+        $sql = "INSERT INTO users (username, email, password,user_role) VALUES ('$username', '$email', '$password_hash',0)";
         $query = $conn->query($sql);
         if ($query) {
             $errors = "";

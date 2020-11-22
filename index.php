@@ -1,1 +1,1 @@
-<?php include("authentication/login.php"); ?>
+<?php header('Location:authentication/login.php'); ?>

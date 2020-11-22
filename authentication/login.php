@@ -22,11 +22,13 @@
                         $username = $row['username'];
                         $email = $row['email'];
                         $password = $row['password'];
+                        $user_role = $row['user_role'];
 
                         $_SESSION['id'] = $id;
                         $_SESSION['username'] = $username;
                         $_SESSION['email'] = $email;
                         $_SESSION['password'] = $password;
+                        $_SESSION['user_role'] = $user_role;
                         header('Location:../dashboard.php');
 
                         $data = array(
