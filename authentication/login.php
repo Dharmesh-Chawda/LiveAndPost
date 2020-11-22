@@ -1,8 +1,10 @@
 
     <?php
-
         session_start();
-        include("./config/db.php");
+        include("../config/db.php");
+        $email = "";
+        $password = "";
+        
         if(isset($_POST['login']))
         {
             $email = $_POST['email'];
@@ -25,7 +27,7 @@
                         $_SESSION['username'] = $username;
                         $_SESSION['email'] = $email;
                         $_SESSION['password'] = $password;
-                        header('Location:dashboard.php');
+                        header('Location:../dashboard.php');
 
                         $data = array(
                             'id' => $id,
@@ -52,48 +54,50 @@
 
     ?>
 
-    <?php include("./inc/header.php") ?>
-
-    <div class="container">
-        <form action="login.php" method="POST" class="form-horizontal">
-            <fieldset>
-                <legend>Login</legend>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="email" class="col-lg-2 col-form-label">Email</label>
-                            <div class="col-lg-10">
-                                <input type="email" name="email" class="form-control" placeholder="Email">
+    <?php include("../inc/header.php") ?>
+    <?php if(isset($_SESSION['username'])): ?>
+        <?php header('Location:../dashboard.php')?>
+    <?php else: ?>
+        <div class="container">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="form-horizontal">
+                <fieldset>
+                    <legend>Login</legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email" class="col-lg-2 col-form-label">Email</label>
+                                <div class="col-lg-10">
+                                    <input type="email" name="email" class="form-control" placeholder="Email" value=<?php echo $email;?>>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="password" class="col-lg-2 col-form-label">Password</label>
-                            <div class="col-lg-10">
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="password" class="col-lg-2 col-form-label">Password</label>
+                                <div class="col-lg-10">
+                                    <input type="password" name="password" class="form-control" placeholder="Password" value = <?php echo $password; ?>>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="col-lg-10">
-                                <input type="submit" name="login" value="Login" class="btn btn-primary">
-                                <button type="reset" class="btn btn-dark">Reset</button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="col-lg-10">
+                                    <input type="submit" name="login" value="Login" class="btn btn-primary">
+                                    <button type="reset" class="btn btn-dark">Reset</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
+                    <div class="row">
                     <div class="form-group">
-                        <div class="col-lg-6">
+                        <div class="col-lg-60">
                             <?php if (isset($_POST['login'])) : ?>
                                 <div class="alert alert-dismissible alert-warning">
                                     <p>
@@ -103,11 +107,10 @@
                             <?php endif; ?>
                         </div>
                     </div>
-                </div>
-
-            </fieldset>
-        </form>
-    </div>
-
-    <?php include("./inc/footer.php") ?>
+                </div> 
+                </fieldset>
+            </form>
+        </div>
+    <?php endif; ?>
+    <?php include("../inc/footer.php") ?>
 

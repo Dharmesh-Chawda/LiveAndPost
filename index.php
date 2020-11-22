@@ -1,3 +1,1 @@
-
-
-<?php include("authentication/login.php") ?>
+<?php include("authentication/login.php"); ?>

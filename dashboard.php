@@ -1,6 +1,9 @@
 <?php
     session_start();
 ?>
+<?php if(!$_SESSION['username']): ?>
+    <?php header('Location:../authentication/login.php')?>
+<?php endif;?>
 <?php include("./inc/header.php") ?>
 
     <div class="container">

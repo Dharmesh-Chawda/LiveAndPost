@@ -39,7 +39,7 @@ if (isset($_POST["register"])) {
             $username = "";
             $password = "";
             $email = "";
-            header('Location:../login.php');
+            header('Location:login.php');
         } else {
             $error = "Failed to register";
         }
@@ -48,7 +48,7 @@ if (isset($_POST["register"])) {
 ?>
 <?php include("../inc/header.php") ?>
 <div class="container">
-    <form action="register.php" method="POST" class="form-horizontal">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="form-horizontal">
         <fieldset>
             <legend>Regitration</legend>
             <div class="row">
