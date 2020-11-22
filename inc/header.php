@@ -27,7 +27,7 @@
             <?php else: ?>
                 <a class="dropdown-item" href="dashboard.php">Dashboard</a>
                 <a class="dropdown-item" href="profile.php">Edit Profile</a>
-                <a class="dropdown-item" href="">Add Post</a>
+                <a class="dropdown-item" href="post.php">Add Post</a>
                 <a class="dropdown-item" href="./authentication/logout.php">Logout</a>
             <?php endif; ?>
             </div>

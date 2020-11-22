@@ -22,6 +22,7 @@
         $seg = explode('/',$url);
         $path = "http://localhost".$seg[0].'/'.$seg[1];
         $avatar = $path.'/img/profile_pic.png';
+        $profession = "";
     }
 ?>
     <?php if($_SESSION['user_role']==1):?>
@@ -35,7 +36,8 @@
     <div class="row">
         <div class="col-lg-12">
             <p style="text-align:center">
-                <img src="<?php echo $avatar;?>" alt="Image" style="width:200px;height:200px;">
+                <img src="<?php echo $avatar;?>" alt="Image" style="width:200px;height:200px;border-radius:50%;">
+                <h4 style="text-align:center"><?php echo $profession;?></h4>
             </p>
         </div>
     </div>
