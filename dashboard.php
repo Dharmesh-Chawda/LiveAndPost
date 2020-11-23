@@ -39,8 +39,49 @@
                 <img src="<?php echo $avatar;?>" alt="Image" style="width:200px;height:200px;border-radius:50%;">
                 <h4 style="text-align:center"><?php echo $profession;?></h4>
             </p>
+            <h1 style="text-align:center">
+                All Posts
+            </h1>
         </div>
     </div>
+    
+    <?php 
+        $posts_query = "SELECT * FROM post";
+        $posts_result = mysqli_query($conn,$posts_query) or die("error");
+        if(mysqli_num_rows($posts_result)>0){
+            while($post = mysqli_fetch_assoc($posts_result)){
+                $id = $post['id'];
+                $title = $post['title'];
+                $description = $post['description'];
+                $category = $post['category'];
+                $featured_image = $post['featuredImage'];
+                ?>
+                <div class="row"  style="margin:10px 100px;">
+                    <div class="col-lg-2">
+                            <img style="width: 150px;height:150px;" src="<?php echo $featured_image?>">
+                    </div>
+                    <div class="col-lg-10">
+                          <h1><a href=""><?php echo $title?></a></h1>
+                          <p><?php echo $description?></p>  
+                          <a href=""><?php echo $category?></a>
+                          <div class="row">
+                              <div class="col-lg-1">
+                                  <a href=view.php?id=<?php echo $id?>>View</a>
+                              </div>
+                              <div class="col-lg-1">
+                                  <a href=edit.php?id=<?php echo $id?>>Edit</a>
+                              </div>
+                              <div class="col-lg-1">
+                                  <a href=delete.php?id=<?php echo $id?>>Delete</a>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+    ?>
+    
 <?php include("./inc/footer.php") ?>
 
 
