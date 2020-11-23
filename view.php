@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+?>
+
+<?php if(!isset($_SESSION['username'])): ?>
+    <?php header('Location:dashboard.php') ?>
+<?php else: ?>
 <?php include("inc/header.php");?>
     <div class="container" style="margin:10px 100px;">
         <?php 
@@ -39,4 +46,5 @@
         </div>
     </div>
 
+<?php endif; ?>
 <?php include("inc/footer.php")?>

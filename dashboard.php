@@ -26,9 +26,9 @@
     }
 ?>
     <?php if($_SESSION['user_role']==1):?>
-        <h1 style="text-align:center">Admin Dashboard</h1>
+        <h2>Admin Dashboard</h2>
     <?php else: ?>
-        <h1 style="text-align:center">User Dashboard</h1>
+        <h2>User Dashboard</h2>
     <?php endif; ?>
     <div class="container">
         <h2 style="text-align:center;"><?php echo $_SESSION['username'];?></h2>

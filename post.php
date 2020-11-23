@@ -135,3 +135,5 @@
         </form>
     </div>
 <?php endif;?>
+
+<?php include("inc/footer.php");?>

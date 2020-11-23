@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="col-lg-10">
-            <a href="#" class="navbar-brand" style="color:#fff">Live & Post</a>
+            <a href="dashboard.php" class="navbar-brand" style="color:#fff">Live & Post</a>
         </div>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
