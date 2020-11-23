@@ -26,7 +26,7 @@
                 <a href=""><?php echo $category;?></a>
                 <div class="row">
                         <div class="col-lg-2">
-                            <a href="">Like </a>
+                            <a href="">Like</a>
                         </div>
                         <div class="col-lg-2">
                             <a href="">Dislike</a>
