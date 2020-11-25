@@ -42,6 +42,8 @@
                 if($query){
                     header('Location:dashboard.php');
                 }else{
+                    echo $conn->error;
+                    echo $sql;
                     $error= "Failed to Upload Image!";
                 }
             }

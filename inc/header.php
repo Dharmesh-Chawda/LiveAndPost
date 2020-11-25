@@ -11,25 +11,42 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="col-lg-10">
-            <a href="dashboard.php" class="navbar-brand" style="color:#fff">Live & Post</a>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Settings
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <?php $url = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];?>
-            <?php if($url=='http://localhost/liveandpost/authentication/login.php'): ?>
-                <a class="dropdown-item" href="../authentication/register.php">Register</a>
-            <?php elseif($url=='http://localhost/liveandpost/authentication/register.php'): ?>
-                <a class="dropdown-item" href="../authentication/login.php">Login</a>
-            <?php else: ?>
-                <a class="dropdown-item" href="dashboard.php">Dashboard</a>
-                <a class="dropdown-item" href="profile.php">Edit Profile</a>
-                <a class="dropdown-item" href="post.php">Add Post</a>
-                <a class="dropdown-item" href="./authentication/logout.php">Logout</a>
-            <?php endif; ?>
-            </div>
+        <a class="navbar-brand" href="dashboard.php">Live & Post</a>
+        
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <?php $url = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];?>
+                <?php if($url=='http://localhost/liveandpost/authentication/login.php'): ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../authentication/register.php">Register</a>
+                    </li>
+                <?php elseif($url=='http://localhost/liveandpost/authentication/register.php'): ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../authentication/login.php">Login</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashboard.php">Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="profile.php">Edit Profile</a>
+                    </li>
+                    
+                    <?php if(isset($_SESSION["username"]) && $_SESSION['user_role']==1):?>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="post.php">Add Post</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="users.php">All Users</a>
+                        </li>
+                    <?php endif; ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./authentication/logout.php">Logout</a>
+                    </li>
+                <?php endif; ?>
+                <li class="nav-item active">
+                
+                </li>
+            </ul>
         </div>
     </nav>

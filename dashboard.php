@@ -68,12 +68,14 @@
                               <div class="col-lg-1">
                                   <a href=view.php?id=<?php echo $id?>>View</a>
                               </div>
-                              <div class="col-lg-1">
-                                  <a href=edit.php?id=<?php echo $id?>>Edit</a>
-                              </div>
-                              <div class="col-lg-1">
-                                  <a href=delete.php?id=<?php echo $id?>>Delete</a>
-                              </div>
+                              <?php if(isset($_SESSION['username']) && $_SESSION['user_role']==1):?>
+                                <div class="col-lg-1">
+                                    <a href=edit.php?id=<?php echo $id?>>Edit</a>
+                                </div>
+                                <div class="col-lg-1">
+                                    <a href=delete.php?id=<?php echo $id?>>Delete</a>
+                                </div>
+                              <?php endif; ?>
                           </div>
                     </div>
                 </div>
