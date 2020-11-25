@@ -10,6 +10,7 @@
         <?php 
             include("./config/db.php");
             $post_id = $_GET['id'];
+            $user_id = $_SESSION['id'];
             $posts_query = "SELECT * FROM posts WHERE id='$post_id'";
             $posts_result = mysqli_query($conn,$posts_query) or die("error");
             if(mysqli_num_rows($posts_result)>0){
@@ -35,10 +36,25 @@
                                 $query = "SELECT * FROM likes WHERE post_id ='$post_id'";
                                 $like_result = mysqli_query($conn,$query);
                                 $likes =  mysqli_num_rows($like_result);
+                                $liked = false;
+                                if($likes>0){
+                                    while($like= mysqli_fetch_assoc($like_result)){
+                                        if($like['user_id']===$user_id){
+                                            $liked = true;
+                                        }
+                                    }
+                                }
                             ?>
-                            <a href="like.php?id=<?php echo $post_id?>" style="background: none;color:#337ab7;border:none;">
-                                Like
-                            </a>
+                            <?php if($liked===true): ?>
+                                <a href="unlike.php?id=<?php echo $post_id?>">
+                                    <i style="color:black;" class="fa fa-thumbs-up"></i>
+                                </a>
+                            <?php else: ?>
+                                <a href="like.php?id=<?php echo $post_id?>">
+                                    <i style="color:RoyalBlue;" class="fa fa-thumbs-up"></i>
+                                </a>
+                            <?php endif;?>
+                            
                             <?php 
                                 echo $likes;
                             ?>
@@ -67,11 +83,13 @@
         <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-6">
-                <h1>All Comments</h1>
                 <?php 
                     $comment_query = "SELECT * FROM comments WHERE post_id = '$post_id' ORDER BY id";
                     $comment_result = mysqli_query($conn,$comment_query);
                     if(mysqli_num_rows($comment_result)>0){
+                        ?>
+                        <h1>All Comments</h1>
+                        <?php
                         while($com = mysqli_fetch_assoc($comment_result)){
                             $comment = $com['comment']; 
                             $comment_user_id = $com['user_id'];

@@ -10,7 +10,17 @@
         $id = $_GET["id"];
         $query = "DELETE FROM posts WHERE id='$id'";        
         if( mysqli_query($conn,$query)){
-            header('Location:dashboard.php');
+            $query = "DELETE FROM likes WHERE post_id='$id'";
+            if(mysqli_query($conn,$query)){
+                $query = "DELETE FROM comments WHERE post_id='$id'";
+                if(mysqli_query($conn,$query)){
+                    header('Location:dashboard.php');
+                }else{
+                    header('Location:dashboard.php');
+                }
+            }else{
+                header('Location:dashboard.php');
+            }
         }else{
             header('Location:dashboard.php');
         }

@@ -39,9 +39,6 @@
                 <img src="<?php echo $avatar;?>" alt="Image" style="width:200px;height:200px;border-radius:50%;">
                 <h4 style="text-align:center"><?php echo $profession;?></h4>
             </p>
-            <h1 style="text-align:center">
-                All Posts
-            </h1>
         </div>
     </div>
     
@@ -50,6 +47,11 @@
         $posts_result = mysqli_query($conn,$posts_query) or die("error");
         if(mysqli_num_rows($posts_result)>0){
             while($post = mysqli_fetch_assoc($posts_result)){
+                ?>
+                <h1 style="text-align:center">
+                    All Posts
+                </h1>                
+                <?php 
                 $id = $post['id'];
                 $title = $post['title'];
                 $description = $post['description'];
