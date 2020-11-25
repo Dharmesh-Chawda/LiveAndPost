@@ -42,11 +42,54 @@
                             <?php 
                                 echo $likes;
                             ?>
-                        </div>
-                        <div class="col-lg-2">
-                            <a href="">Comment</a>
-                        </div>                    
+                        </div> 
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-6">
+                <form action="comment.php" method="POST" class="form-horizontal">
+                <input type="hidden" name="id" value="<?php echo $post_id?>">
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label">Add Comment</label>
+                        <div class="col-lg-9">
+                            <textarea name="comment" class="form-control" cols="10" rows="5" placeholder="Comment"></textarea>
+                            <input type="submit" name= "postcomment" value="Comment" class = "btn btn-primary">
+                            <a href="dashboard.php" class ="btn btn-default">Go Back</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-6">
+                <h1>All Comments</h1>
+                <?php 
+                    $comment_query = "SELECT * FROM comments WHERE post_id = '$post_id' ORDER BY id";
+                    $comment_result = mysqli_query($conn,$comment_query);
+                    if(mysqli_num_rows($comment_result)>0){
+                        while($com = mysqli_fetch_assoc($comment_result)){
+                            $comment = $com['comment']; 
+                            $comment_user_id = $com['user_id'];
+                            $user_query = "SELECT * FROM users WHERE id='$comment_user_id'";
+                            $user_result= mysqli_query($conn,$user_query) or die("error");
+                            if(mysqli_num_rows($user_result)){
+                                while($user = mysqli_fetch_assoc($user_result)){
+                                    $username = $user['username'];
+                                }
+                            }
+                            ?>
+                                <b><?php echo $username ?></b>
+                                <p><?php echo $comment;?></p>
+                                <hr>
+                            <?php
+                        }   
+                    }
+                ?>
             </div>
         </div>
     </div>
