@@ -30,17 +30,6 @@
                         $_SESSION['password'] = $password;
                         $_SESSION['user_role'] = $user_role;
                         header('Location:../dashboard.php');
-
-                        $data = array(
-                            'id' => $id,
-                            'username' => $username,
-                            'email' => $email,
-                            'password' => $password
-                        );
-                        echo '<pre>';
-                        print_r($data);
-                        echo '</pre>';
-                        
                     }
                 }
                 else

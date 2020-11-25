@@ -34,7 +34,7 @@
                 $full_url = $path.'/'.'assets/uploads/'.$file_name;
                 $id = $_SESSION['id'];
                 $user_role = $_SESSION['user_role'];
-                $sql = "INSERT INTO profile(profession,avatar,userId,userRole) VALUES ('$profession','$full_url','$id','$user_role')";
+                $sql = "INSERT INTO profile(profession,avatar,user_id,user_role) VALUES ('$profession','$full_url','$id','$user_role')";
                 $query = $conn -> query($sql);
                 if($query){
                     header('Location:dashboard.php');

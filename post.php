@@ -2,11 +2,13 @@
     include("./inc/header.php");
     include("./config/db.php");
     session_start();
-    if(isset($_FILES['featuredImage']) && isset($_POST['post'])){
+    $title = "";
+    $description = "";
+    if(isset($_FILES["featuredImage"]) && isset($_POST['post'])){
         $title = $_POST['title'];
         $description = $_POST['description'];
         $category = $_POST['category'];
-        if($title !="" && $description!="" && $category!=""){
+        if($title !="" && $description!="" && $category!="" && $_FILES['featuredImage']['size']>0){
             $uploadok = 1;
             $file_name = $_FILES['featuredImage']['name'];
             $file_size = $_FILES['featuredImage']['size'];
@@ -14,13 +16,14 @@
             $file_type = $_FILES['featuredImage']['type'];
             $target_dir = "assets/featuredImages";
             $target_file = $target_dir.basename($file_name);
-            $check = getimageSize($file_tmp);
-            $tmp = explode('.',$file_name);
-            $file_ext = strtolower(end($tmp));
-
-            $extensions = array('jpeg','jpg','png');
-            if(in_array($file_ext,$extensions)==false){
-                $error = "Please choose the image which has the extension as jpeg,jpg or png";
+            $check = true; 
+            $tmp = $file_ext = "";
+            if(empty($file_tmp)){
+                $error = "Please select an image";
+            }else{
+                $check = getimageSize($file_tmp);
+                $tmp = explode('.',$file_name);
+                $file_ext = strtolower(end($tmp));
             }
             if(file_exists($target_file)===true){
                 $error = "Sorry file already exists!";
@@ -34,9 +37,7 @@
                 $seg = explode('/',$url);
                 $path = $seg[0].'/'.$seg[1].'/'.$seg[2].'/'.$seg[3];
                 $full_url = $path.'/'.'assets/featuredImages/'.$file_name;
-                $id = $_SESSION['id'];
-                $user_role = $_SESSION['user_role'];
-                $sql = "INSERT INTO post(title,description,category,featuredImage,userId,userRole) VALUES ('$title','$description','$category','$full_url','$id','$user_role')";
+                $sql = "INSERT INTO posts(title,description,category,featured_image) VALUES ('$title','$description','$category','$full_url')";
                 $query = $conn -> query($sql);
                 if($query){
                     header('Location:dashboard.php');
@@ -61,7 +62,7 @@
                         <div class="form-group">
                             <label for="title" class="col-lg-3 col-form-label">Title</label>
                             <div class="col-lg-9">
-                                <input type="text" name="title" class="form-control" placeholder="Title">
+                                <input type="text" name="title" class="form-control" placeholder="Title" value =<?php echo $title?>>
                             </div>
                         </div>
                     </div>
@@ -72,7 +73,7 @@
                         <div class="form-group">
                             <label for="description" class="col-lg-3 col-form-label">Description</label>
                             <div class="col-lg-9">
-                                <textarea name="description" rows="5" cols="10" class="form-control" placeholder="Description">
+                                <textarea name="description" rows="5" cols="10" class="form-control" placeholder="Description" value=<?php echo $description?>>
                                 </textarea>
                             </div>
                         </div>
@@ -84,7 +85,7 @@
                         <div class="form-group">
                             <label for="category" class="col-lg-3 col-form-label">Category</label>
                             <div class="col-lg-9">
-                                <select name="category" class="form-control" >
+                                <select name="category" class="form-control">
                                     <option>Select</option>
                                     <option value="Enterntainment">Enterntainment</option>
                                     <option value="Technology">Technology</option>

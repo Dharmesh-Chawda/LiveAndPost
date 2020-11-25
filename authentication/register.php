@@ -41,6 +41,7 @@ if (isset($_POST["register"])) {
             $email = "";
             header('Location:login.php');
         } else {
+            echo "Failed";
             $error = "Failed to register";
         }
     }

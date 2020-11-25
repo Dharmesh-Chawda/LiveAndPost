@@ -10,7 +10,7 @@
         <?php 
             include("./config/db.php");
             $id = $_GET['id'];
-            $posts_query = "SELECT * FROM post WHERE id='$id'";
+            $posts_query = "SELECT * FROM posts WHERE id='$id'";
             $posts_result = mysqli_query($conn,$posts_query) or die("error");
             if(mysqli_num_rows($posts_result)>0){
                 while($post = mysqli_fetch_assoc($posts_result)){
@@ -18,7 +18,7 @@
                     $title = $post['title'];
                     $description = $post['description'];
                     $category = $post['category'];
-                    $featured_image = $post['featuredImage'];
+                    $featured_image = $post['featured_image'];
                     
                 }
             }

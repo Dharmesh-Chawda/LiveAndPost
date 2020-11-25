@@ -9,7 +9,7 @@
     include("./config/db.php");
     include("./inc/header.php");
     $id = $_SESSION["id"];
-    $query = "SELECT * FROM profile WHERE userId = '$id'";
+    $query = "SELECT * FROM profile WHERE user_id = '$id'";
     $result = mysqli_query($conn,$query) or die('error');
     if(mysqli_num_rows($result)>0){
         while($row = mysqli_fetch_assoc($result)){
@@ -46,7 +46,7 @@
     </div>
     
     <?php 
-        $posts_query = "SELECT * FROM post";
+        $posts_query = "SELECT * FROM posts";
         $posts_result = mysqli_query($conn,$posts_query) or die("error");
         if(mysqli_num_rows($posts_result)>0){
             while($post = mysqli_fetch_assoc($posts_result)){
@@ -54,7 +54,7 @@
                 $title = $post['title'];
                 $description = $post['description'];
                 $category = $post['category'];
-                $featured_image = $post['featuredImage'];
+                $featured_image = $post['featured_image'];
                 ?>
                 <div class="row"  style="margin:10px 100px;">
                     <div class="col-lg-2">
