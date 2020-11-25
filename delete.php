@@ -8,9 +8,8 @@
     <?php 
         include("./config/db.php");
         $id = $_GET["id"];
-        $query = "DELETE FROM posts WHERE id='$id'";
-        $result = mysql_query($conn,$query) or die("error");
-        if( mysql_query($conn,$query)){
+        $query = "DELETE FROM posts WHERE id='$id'";        
+        if( mysqli_query($conn,$query)){
             header('Location:dashboard.php');
         }else{
             header('Location:dashboard.php');
