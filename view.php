@@ -47,11 +47,12 @@
                             ?>
                             <?php if($liked===true): ?>
                                 <a href="unlike.php?id=<?php echo $post_id?>">
-                                    <i style="color:black;" class="fa fa-thumbs-up"></i>
+                                    <i style="" class="fa fa-thumbs-up"></i>
+
                                 </a>
                             <?php else: ?>
                                 <a href="like.php?id=<?php echo $post_id?>">
-                                    <i style="color:RoyalBlue;" class="fa fa-thumbs-up"></i>
+                                    <i style="color:RoyalBlue;" class="fa fa-thumbs-o-up"></i>
                                 </a>
                             <?php endif;?>
                             
