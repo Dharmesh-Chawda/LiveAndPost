@@ -1,0 +1,122 @@
+html,body {
+    font-family: sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(239, 252, 252);
+
+}
+
+#footer {
+background: #2e3339;
+padding-top: 20px;
+padding-bottom: 0px;
+color: #fff;
+font-size: 14px;
+}
+
+.navbar
+{
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.dash-head
+{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.pro-head
+{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#footer
+{
+    background: #2e3339;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer-head
+{
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.footer-content
+    {
+        padding-bottom: 40px;
+        padding-top: 40px;
+        padding-left: 50px;
+    }  
+
+@media only screen and (max-width: 720px)
+{
+    .footer-content
+    {
+        padding-top: 30px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+    }    
+    .contactus , .social , .addr
+    {
+        margin-bottom: 30px;
+    }
+}
+
+
+.social { text-align: center; float: left;}
+
+.social ul { float: left; padding-top: 0px; padding-inline-start: 0px;margin-left: 5px;}
+
+.social ul li { display: inline-block; }
+
+.social ul li a
+{ 
+    font-size: 25px; 
+    color: #fff; 
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #2e3339;
+    border-radius: 6px;
+
+}
+
+.social ul li:hover a 
+{ 
+    background: #0060f0;
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.contact-list {list-style: none; padding-inline-start: 0px;}
+
+.contact-list li {font-size: 15px; margin-bottom: 5px;}
+
+.contact-list li >ion-icon {float:left; width:20px; height:20px; margin-right: 5px;}
+
+.contact-list li >ion-icon, .contact-list li> span, .contact-list li { overflow: hidden;}
+
+.contact-list li>span{ display:block;}
+
+.contact-list>li a
+{
+    text-decoration: none;     
+    color:#38B6FF;
+}
+
+.contact-list>li a:hover
+{    
+    color:#a0cfeb;
+}

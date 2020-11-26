@@ -26,9 +26,9 @@
     }
 ?>
     <?php if($_SESSION['user_role']==1):?>
-        <h2>Admin Dashboard</h2>
+        <h2 class="dash-head">Admin Dashboard</h2>
     <?php else: ?>
-        <h2>User Dashboard</h2>
+        <h2 class="dash-head">User Dashboard</h2>
     <?php endif; ?>
     <div class="container">
         <h2 style="text-align:center;"><?php echo $_SESSION['username'];?></h2>
@@ -48,7 +48,7 @@
         if(mysqli_num_rows($posts_result)>0){
             
                 ?>
-                <h1 style="text-align:center">
+                <h1 style="margin-left:100px;margin-bottom:30px">
                     All Posts
                 </h1>                
                 <?php 
@@ -59,29 +59,30 @@
                 $category = $post['category'];
                 $featured_image = $post['featured_image'];
                 ?>
-                <div class="row"  style="margin:10px 100px;">
-                    <div class="col-lg-2">
-                            <img style="width: 150px;height:150px;" src="<?php echo $featured_image?>">
+                <div class="row"  style="margin:10px 50px;">
+                    <div class="col-lg-3">
+                        <img style="width: 100%;height:60%;" src="<?php echo $featured_image?>">
                     </div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                           <h1><a href=""><?php echo $title?></a></h1>
                           <p><?php echo $description?></p>  
-                          <a href=""><?php echo $category?></a>
+                          <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a>
                           <div class="row">
                               <div class="col-lg-1">
-                                  <a href=view.php?id=<?php echo $id?>>View</a>
+                                  <a class="btn btn-primary" href=view.php?id=<?php echo $id?>>View</a>
                               </div>
                               <?php if(isset($_SESSION['username']) && $_SESSION['user_role']==1):?>
                                 <div class="col-lg-1">
-                                    <a href=edit.php?id=<?php echo $id?>>Edit</a>
+                                    <a class="btn btn-primary" href=edit.php?id=<?php echo $id?>>Edit</a>
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href=delete.php?id=<?php echo $id?>>Delete</a>
+                                    <a class="btn btn-primary" href=delete.php?id=<?php echo $id?>>Delete</a>
                                 </div>
                               <?php endif; ?>
                           </div>
                     </div>
                 </div>
+                <hr>
                 <?php
             }
         }

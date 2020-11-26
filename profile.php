@@ -53,7 +53,7 @@
     <div class="container">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
             <fieldset>
-                <legend>Add Profile</legend>
+                <h2 class="pro-head">Add Profile</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -103,3 +103,4 @@
         </form>
     </div>
 <?php endif;?>
+<?php include("./inc/footer.php") ?>

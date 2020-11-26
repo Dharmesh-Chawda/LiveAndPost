@@ -22,14 +22,14 @@
                 }
             }
         ?>
-        <h1 style="text-align:center"><?php echo $title;?></h1>
+        <h1 style="margin-left:20px;margin-bottom:20px;margin-top:20px"><?php echo $title;?></h1>
         <div class="row">
             <div class="col-lg-4">
                 <img style="width:300px;height:300px;" src="<?php echo $featured_image?>" >
             </div>
             <div class="col-lg-8">
                 <p><?php echo $description;?></p>
-                <a href=""><?php echo $category;?></a>
+                <a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category;?></a>
                 <div class="row">
                         <div class="col-lg-2">
                             <?php 
@@ -46,18 +46,17 @@
                                 }
                             ?>
                             <?php if($liked===true): ?>
-                                <a href="unlike.php?id=<?php echo $post_id?>">
+                                <a class="like" href="unlike.php?id=<?php echo $post_id?>">
                                     <i style="" class="fa fa-thumbs-up"></i>
-
                                 </a>
                             <?php else: ?>
-                                <a href="like.php?id=<?php echo $post_id?>">
+                                <a class="like" href="like.php?id=<?php echo $post_id?>">
                                     <i style="color:RoyalBlue;" class="fa fa-thumbs-o-up"></i>
                                 </a>
                             <?php endif;?>
                             
                             <?php 
-                                echo $likes;
+                                echo "<span class='like'>".$likes."</span>";
                             ?>
                         </div> 
                 </div>
@@ -71,11 +70,10 @@
                 <form action="comment.php" method="POST" class="form-horizontal">
                 <input type="hidden" name="id" value="<?php echo $post_id?>">
                     <div class="form-group row">
-                        <label class="col-lg-3 control-label">Add Comment</label>
-                        <div class="col-lg-9">
-                            <textarea name="comment" class="form-control" cols="10" rows="5" placeholder="Comment"></textarea>
-                            <input type="submit" name= "postcomment" value="Comment" class = "btn btn-primary">
-                            <a href="dashboard.php" class ="btn btn-default">Go Back</a>
+                        <label class="col-lg-1 control-label like"><i style="color:RoyalBlue;" class="fa fa-comment-o" aria-hidden="true"></i></label>
+                        <div class="col-lg-8">
+                            <textarea name="comment" class="form-control" cols="10" rows="1" placeholder="Comment"></textarea>
+                            <input type="submit" name= "postcomment" value="Add" class = "btn btn-primary">
                         </div>
                     </div>
                 </form>
