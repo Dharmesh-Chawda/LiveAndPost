@@ -79,6 +79,28 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                        <label for="avatar" class="col-lg-2 col-form-label">Interests</label><br>
+                        <div class="col-lg-10">
+                                <input type="checkbox" id="Sports" value="Sports">
+                                <label for="Sports">Sports</label><br>
+                                <input type="checkbox" id="Entertainment" value="Entertainment">
+                                <label for="Entertainment">Entertainment</label><br>
+                                <input type="checkbox" id="Technology" value="Technology">
+                                <label for="Technology">Technology</label><br>
+                                <input type="checkbox" id="Politics" value="Politics">
+                                <label for="Politics">Politics</label>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+        <br><br>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <div class="col-lg-10">
                                 <input type="submit" name="profile" value="Submit" class="btn btn-primary">
                             </div>

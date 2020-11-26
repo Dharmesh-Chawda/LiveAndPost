@@ -30,6 +30,7 @@
             <div class="col-lg-8">
                 <p><?php echo $description;?></p>
                 <a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category;?></a>
+                <br><br>
                 <div class="row">
                         <div class="col-lg-2">
                             <?php 
@@ -59,6 +60,20 @@
                                 echo "<span class='like'>".$likes."</span>";
                             ?>
                         </div> 
+
+
+                        <div class="col-lg-6">
+                            <form action="comment.php" method="POST" class="form-horizontal">
+                            <input type="hidden" name="id" value="<?php echo $post_id?>">
+                                <div class="form-group row">
+                                    <label class="col-lg-1 control-label like"><i style="color:RoyalBlue;" class="fa fa-comment-o" aria-hidden="true"></i></label>&nbsp;
+                                    <div class="col-lg-8">
+                                        <textarea name="comment" class="form-control" cols="10" rows="1" placeholder="Comment"></textarea>
+                                        <input type="submit" name= "postcomment" value="Add" class = "btn btn-primary">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                 </div>
             </div>
         </div>
@@ -66,19 +81,8 @@
         <div class="row">
             <div class="col-lg-4">
             </div>
-            <div class="col-lg-6">
-                <form action="comment.php" method="POST" class="form-horizontal">
-                <input type="hidden" name="id" value="<?php echo $post_id?>">
-                    <div class="form-group row">
-                        <label class="col-lg-1 control-label like"><i style="color:RoyalBlue;" class="fa fa-comment-o" aria-hidden="true"></i></label>
-                        <div class="col-lg-8">
-                            <textarea name="comment" class="form-control" cols="10" rows="1" placeholder="Comment"></textarea>
-                            <input type="submit" name= "postcomment" value="Add" class = "btn btn-primary">
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
+        <br>
         <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-6">
@@ -87,7 +91,8 @@
                     $comment_result = mysqli_query($conn,$comment_query);
                     if(mysqli_num_rows($comment_result)>0){
                         ?>
-                        <h1>All Comments</h1>
+                        <hr>
+                        <h3>All Comments</h3>
                         <?php
                         while($com = mysqli_fetch_assoc($comment_result)){
                             $comment = $com['comment']; 

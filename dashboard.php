@@ -47,10 +47,12 @@
         $posts_result = mysqli_query($conn,$posts_query) or die("error");
         if(mysqli_num_rows($posts_result)>0){
             
-                ?>
+                ?>  
                 <h1 style="margin-left:100px;margin-bottom:30px">
                     All Posts
-                </h1>                
+                    <hr> 
+                </h1>   
+                        
                 <?php 
                 while($post = mysqli_fetch_assoc($posts_result)){
                 $id = $post['id'];
@@ -64,9 +66,9 @@
                         <img style="width: 100%;height:60%;" src="<?php echo $featured_image?>">
                     </div>
                     <div class="col-lg-9">
-                          <h1><a href=""><?php echo $title?></a></h1>
+                          <h1 class="post-tit"><a href=""><?php echo $title?></a></h1>
                           <p><?php echo $description?></p>  
-                          <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a>
+                          <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a><br><br>
                           <div class="row">
                               <div class="col-lg-1">
                                   <a class="btn btn-primary" href=view.php?id=<?php echo $id?>>View</a>
