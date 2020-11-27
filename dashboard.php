@@ -90,15 +90,15 @@
 
 
     <div class="proj-content">
-                <div class="row">
+                <div class="row post-box">
 
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     <div class="event-icon">
-                        <img style="width: 100%;height:60%;" src="<?php echo $featured_image?>">
+                        <img style="height:60%;width:100%" src="<?php echo $featured_image?>">
                     </div>
                   </div>
 
-                  <div class="col-md-10">
+                  <div class="col-md-9">
 
                     <div class="event-listing-details">
                         <h4 class="event-title">
@@ -108,6 +108,7 @@
                             <p><?php echo $description?></p>
                         </div>
                         <div class="event-date">
+                        <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a><br><br>
 
                             <div class="row">
                                 <div class="col-lg-1">

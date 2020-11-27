@@ -36,8 +36,18 @@ html,body {
 
 .pro-head
 {
-    margin-left: 30px;
+    margin-left: 20px;
     margin-top: 30px;
+    font-size: 40px;
+    color: rgba(115, 118, 253,0.7);
+}
+
+.user-head
+{
+    margin-left: 20px;
+    margin-top: 30px;
+    font-size: 40px;
+    color: rgba(115, 118, 253,0.7);
 }
 
 .post-tit
@@ -104,12 +114,13 @@ html,body {
 
 
 
-.proj-content{
+.proj-content
+{
     -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: white;
-    height: ;
+    height: relative;
     
   }
   .proj-content:hover {
@@ -118,46 +129,53 @@ html,body {
     box-shadow:0 8px 16px 0 rgba(0, 0, 0, 0.2);  
   }
   
-  
-  .event-listing
-  {
-      line-height: 1;
-      padding: 20px 10px;
-      margin-bottom: 20px;
-     
-  }
+
+    .event-listing
+    {
+        line-height: 1;
+        padding: 20px 10px;
+        margin-bottom: 20px;
+    }
   
   .event-icon
   {
-        padding: 15px 0;
         height: 60%;
         width: 100%;
         text-align: center;
+        padding-top: 25px;
+        padding-left: 15px;
+  }
+
+  .event-title
+  {
+      font-size: 48px;
+      font-weight: bold;
+      padding-top: 20px;
+      color: rgb(71, 120, 255);
   }
          
       .event-listing-details
       {
-        border-left: 2px solid black;
         padding-left: 2em;
-
-
-
+        
       }
-      .event-description
-      {
-          line-height: 1.5;
-          margin-bottom: 1.5em;
-          padding-right: 30px;
-        }
+
+    .event-description
+    {
+        line-height: 1.5;
+        margin-bottom: 1.5em;
+        padding-right: 30px;
+        text-overflow: ellipsis;
+    }
   
         .event-date {
-          color: brown;
           padding-right: 1em;
+          padding-bottom: 20px;
         }
 
         .proj-content
         {
-            background-color: #d2edfc;
+            background-color: #a9dcf0;
             box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
             margin-left: 10px;
             margin-right: 10px;
@@ -165,6 +183,11 @@ html,body {
             margin-top: 100px;
             margin-bottom: 100px;
         }
+
+
+.post-box
+{
+}
 
 
 
