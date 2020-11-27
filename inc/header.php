@@ -15,19 +15,19 @@
 
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="dashboard.php">Live & Post</a>
         
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <?php $url = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];?>
-                <?php if($url=='http://localhost/liveandpost/authentication/login.php'): ?>
+                <?php if($url=='http://localhost/liveandpost/login.php'): ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../authentication/register.php">Register</a>
+                        <a class="nav-link" href="register.php">Register</a>
                     </li>
-                <?php elseif($url=='http://localhost/liveandpost/authentication/register.php'): ?>
+                <?php elseif($url=='http://localhost/liveandpost/register.php'): ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../authentication/login.php">Login</a>
+                        <a class="nav-link" href="login.php">Login</a>
                     </li>
                 <?php else: ?>
                     <li class="nav-item active">
@@ -46,7 +46,7 @@
                         </li>
                     <?php endif; ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="./authentication/logout.php">Logout</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 <?php endif; ?>
                 <li class="nav-item active">

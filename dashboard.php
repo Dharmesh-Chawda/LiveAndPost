@@ -2,7 +2,7 @@
     session_start();
 ?>
 <?php if(!$_SESSION['username']): ?>
-    <?php header('Location:../authentication/login.php')?>
+    <?php header('Location:login.php')?>
 <?php endif;?>
 
 <?php 
@@ -30,7 +30,7 @@
     <?php else: ?>
         <h2 class="dash-head">User Dashboard</h2>
     <?php endif; ?>
-    <div class="container">
+    <div class="">
         <h2 style="text-align:center;"><?php echo $_SESSION['username'];?></h2>
     </div>
     <div class="row">
