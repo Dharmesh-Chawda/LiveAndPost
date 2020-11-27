@@ -46,12 +46,12 @@
         $posts_query = "SELECT * FROM posts";
         $posts_result = mysqli_query($conn,$posts_query) or die("error");
         if(mysqli_num_rows($posts_result)>0){
-            while($post = mysqli_fetch_assoc($posts_result)){
                 ?>
                 <h1 style="text-align:center">
                     All Posts
                 </h1>                
                 <?php 
+                while($post = mysqli_fetch_assoc($posts_result)){
                 $id = $post['id'];
                 $title = $post['title'];
                 $description = $post['description'];
