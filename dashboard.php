@@ -30,15 +30,17 @@
     <?php else: ?>
         <h2 class="dash-head">User Dashboard</h2>
     <?php endif; ?>
-    <div class="">
-        <h2 style="text-align:center;"><?php echo $_SESSION['username'];?></h2>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <p style="text-align:center">
-                <img src="<?php echo $avatar;?>" alt="Image" style="width:200px;height:200px;border-radius:50%;">
-                <h4 style="text-align:center"><?php echo $profession;?></h4>
-            </p>
+
+    <div class="profile">
+        <div class="member text-center">
+            <div class="card">
+                <figure>
+                    <img src="<?php echo $avatar;?>" class="" alt="card image">
+                </figure>
+                <hr>
+                <h4><?php echo $_SESSION['username'];?></h4>
+                <p><?php echo $profession;?></p>
+            </div>
         </div>
     </div>
     
