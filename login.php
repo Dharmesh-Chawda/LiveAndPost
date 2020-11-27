@@ -1,7 +1,7 @@
 
     <?php
         session_start();
-        include("../config/db.php");
+        include("config/db.php");
         $email = "";
         $password = "";
         
@@ -29,7 +29,7 @@
                         $_SESSION['email'] = $email;
                         $_SESSION['password'] = $password;
                         $_SESSION['user_role'] = $user_role;
-                        header('Location:../dashboard.php');
+                        header('Location:dashboard.php');
                     }
                 }
                 else
@@ -45,9 +45,9 @@
 
     ?>
 
-    <?php include("../inc/header.php") ?>
+    <?php include("inc/header.php") ?>
     <?php if(isset($_SESSION['username'])): ?>
-        <?php header('Location:../dashboard.php')?>
+        <?php header('Location:dashboard.php')?>
     <?php else: ?>
         <div class="container">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="form-horizontal">
@@ -103,5 +103,5 @@
             </form>
         </div>
     <?php endif; ?>
-    <?php include("../inc/footer.php") ?>
+    <?php include("inc/footer.php") ?>
 
