@@ -104,6 +104,73 @@ html,body {
 
 
 
+.proj-content{
+    -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    height: ;
+    
+  }
+  .proj-content:hover {
+    -webkit-box-shadow:0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow:0 8px 16px 0 rgba(0, 0, 0, 0.2);  
+  }
+  
+  
+  .event-listing
+  {
+      line-height: 1;
+      padding: 20px 10px;
+      margin-bottom: 20px;
+     
+  }
+  
+  .event-icon
+  {
+        padding: 15px 0;
+        height: 60%;
+        width: 100%;
+        text-align: center;
+  }
+         
+      .event-listing-details
+      {
+        border-left: 2px solid black;
+        padding-left: 2em;
+
+
+
+      }
+      .event-description
+      {
+          line-height: 1.5;
+          margin-bottom: 1.5em;
+          padding-right: 30px;
+        }
+  
+        .event-date {
+          color: brown;
+          padding-right: 1em;
+        }
+
+        .proj-content
+        {
+            background-color: #d2edfc;
+            box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 15px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+
+
+
+
+
 
 
 

@@ -63,6 +63,7 @@
                 $category = $post['category'];
                 $featured_image = $post['featured_image'];
                 ?>
+
                 <div class="row"  style="margin:10px 50px;">
                     <div class="col-lg-3">
                         <img style="width: 100%;height:60%;" src="<?php echo $featured_image?>">
@@ -86,6 +87,67 @@
                           </div>
                     </div>
                 </div>
+
+
+    <div class="proj-content">
+                <div class="row">
+
+                  <div class="col-md-2">
+                    <div class="event-icon">
+                        <img style="width: 100%;height:60%;" src="<?php echo $featured_image?>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-10">
+
+                    <div class="event-listing-details">
+                        <h4 class="event-title">
+                            <a><?php echo $title?></a>
+                        </h4>
+                        <div class="event-description">
+                            <p><?php echo $description?></p>
+                        </div>
+                        <div class="event-date">
+
+                            <div class="row">
+                                <div class="col-lg-1">
+                                    <a class="btn btn-primary" href=view.php?id=<?php echo $id?>>View</a>
+                                </div>
+                                <?php if(isset($_SESSION['username']) && $_SESSION['user_role']==1):?>
+                                <div class="col-lg-1">
+                                    <a class="btn btn-primary" href=edit.php?id=<?php echo $id?>>Edit</a>
+                                </div>
+                                <div class="col-lg-1">
+                                    <a class="btn btn-primary" href=delete.php?id=<?php echo $id?>>Delete</a>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+            </div>
+
+        </div>
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <hr>
                 <?php
             }
