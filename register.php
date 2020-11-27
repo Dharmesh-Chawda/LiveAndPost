@@ -48,10 +48,10 @@ if (isset($_POST["register"])) {
 }
 ?>
 <?php include("inc/header.php") ?>
-<div class="container">
+<div class="container" style="margin-top:20px">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="form-horizontal">
         <fieldset>
-            <legend>Regitration</legend>
+            <legend class="reg-head">Regitration</legend>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -84,7 +84,7 @@ if (isset($_POST["register"])) {
                     </div>
                 </div>
             </div>
-
+            <br>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">

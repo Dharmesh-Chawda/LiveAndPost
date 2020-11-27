@@ -27,7 +27,7 @@
         <input type="hidden" name="id" value=<?php echo $id?>>
         <input type="hidden" name="featured_image" value=<?php echo $featured_image?>>
         <fieldset>
-                <legend>Edit Post</legend>
+                <legend class="ed-head">Edit Post</legend>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">

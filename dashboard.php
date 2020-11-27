@@ -30,15 +30,17 @@
     <?php else: ?>
         <h2 class="dash-head">User Dashboard</h2>
     <?php endif; ?>
-    <div class="">
-        <h2 style="text-align:center;"><?php echo $_SESSION['username'];?></h2>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <p style="text-align:center">
-                <img src="<?php echo $avatar;?>" alt="Image" style="width:200px;height:200px;border-radius:50%;">
-                <h4 style="text-align:center"><?php echo $profession;?></h4>
-            </p>
+
+    <div class="profile">
+        <div class="member text-center">
+            <div class="card">
+                <figure>
+                    <img src="<?php echo $avatar;?>" class="" alt="card image">
+                </figure>
+                <hr>
+                <h4><?php echo $_SESSION['username'];?></h4>
+                <p><?php echo $profession;?></p>
+            </div>
         </div>
     </div>
     
@@ -51,43 +53,70 @@
                     All Posts
                     <hr> 
                 </h1>   
-                        
-                <?php 
-                while($post = mysqli_fetch_assoc($posts_result)){
-                $id = $post['id'];
-                $title = $post['title'];
-                $description = $post['description'];
-                $category = $post['category'];
-                $featured_image = $post['featured_image'];
-                ?>
-                <div class="row"  style="margin:10px 50px;">
-                    <div class="col-lg-3">
-                        <img style="width: 100%;height:60%;" src="<?php echo $featured_image?>">
-                    </div>
-                    <div class="col-lg-9">
-                          <h1 class="post-tit"><a href=""><?php echo $title?></a></h1>
-                          <p><?php echo $description?></p>  
-                          <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a><br><br>
-                          <div class="row">
-                              <div class="col-lg-1">
-                                  <a class="btn btn-primary" href=view.php?id=<?php echo $id?>>View</a>
-                              </div>
-                              <?php if(isset($_SESSION['username']) && $_SESSION['user_role']==1):?>
-                                <div class="col-lg-1">
-                                    <a class="btn btn-primary" href=edit.php?id=<?php echo $id?>>Edit</a>
+
+
+
+                        <?php 
+                            while($post = mysqli_fetch_assoc($posts_result))
+                            {
+                            $id = $post['id'];
+                            $title = $post['title'];
+                            $description = $post['description'];
+                            $category = $post['category'];
+                            $featured_image = $post['featured_image'];
+                        ?>
+
+
+                <div class="proj-content">
+                    <div class="row post-box"> 
+
+                        <div class="col-md-3">
+                            <div class="post-icon">
+                                <img style="height:60%;width:100%" src="<?php echo $featured_image?>">
+                            </div>
+                        </div>
+
+                        <div class="col-md-9">
+
+                            <div class="post-listing-details">
+                                <h4 class="post-title">
+                                    <a><?php echo $title?></a>
+                                </h4>
+                                <div class="post-description">
+                                    <p><?php echo substr($description,0,300)."...";?></p>
                                 </div>
-                                <div class="col-lg-1">
-                                    <a class="btn btn-primary" href=delete.php?id=<?php echo $id?>>Delete</a>
+                                <div class="post-date">
+                                <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a><br><br>
+
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            <a class="btn btn-primary" href=view.php?id=<?php echo $id?>>View</a>
+                                        </div>
+                                        <?php if(isset($_SESSION['username']) && $_SESSION['user_role']==1):?>
+                                        <div class="col-lg-1">
+                                            <a class="btn btn-primary" href=edit.php?id=<?php echo $id?>>Edit</a>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <a class="btn btn-primary" href=delete.php?id=<?php echo $id?>>Delete</a>
+                                        </div>
+                                        <?php endif; ?>
+                                    </div>
+
+
                                 </div>
-                              <?php endif; ?>
-                          </div>
+                            </div>
+                            
+                        </div>
+
                     </div>
                 </div>
-                <hr>
+
+            </div>
                 <?php
             }
         }
     ?>
+
     
 <?php include("./inc/footer.php") ?>
 

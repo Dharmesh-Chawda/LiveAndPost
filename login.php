@@ -49,10 +49,10 @@
     <?php if(isset($_SESSION['username'])): ?>
         <?php header('Location:dashboard.php')?>
     <?php else: ?>
-        <div class="container">
+        <div class="container" style="margin-top:20px">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="form-horizontal">
                 <fieldset>
-                    <legend>Login</legend>
+                    <legend class="log-head">Login</legend>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -75,7 +75,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" style="margin-bottom:80px">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="col-lg-10">
