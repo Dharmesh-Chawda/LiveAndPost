@@ -1,5 +1,5 @@
 <?php
-include("../config/db.php");
+include("config/db.php");
 $errors = "";
 $username = "";
 $password = "";
@@ -47,7 +47,7 @@ if (isset($_POST["register"])) {
     }
 }
 ?>
-<?php include("../inc/header.php") ?>
+<?php include("inc/header.php") ?>
 <div class="container">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="form-horizontal">
         <fieldset>
@@ -112,4 +112,4 @@ if (isset($_POST["register"])) {
         </fieldset>
     </form>
 </div>
-<?php include("../inc/footer.php") ?>
+<?php include("inc/footer.php") ?>
