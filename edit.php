@@ -18,7 +18,6 @@
                 $description = $post['description'];
                 $category = $post['category'];
                 $featured_image = $post['featured_image'];
-                
             }
         }
     ?>

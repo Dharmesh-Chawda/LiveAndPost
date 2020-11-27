@@ -3,12 +3,7 @@ html,body {
     max-width: 100%;
     overflow-x: hidden;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-<<<<<<< HEAD
-    /* background: rgb(2,170,176);
-background: linear-gradient(90deg, rgba(2,170,176,1) 0%, rgba(0,205,172,1) 100%); */
-=======
     background: rgb(224, 249, 255);
->>>>>>> b0094a40466da283feaa06c331ef68c78138e6b9
 }
 
 #footer

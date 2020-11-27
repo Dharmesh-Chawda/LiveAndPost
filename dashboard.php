@@ -35,7 +35,7 @@
         <div class="member text-center">
             <div class="card">
                 <figure>
-                    <img src="<?php echo $avatar;?>" class="" alt="card image">
+                    <img src="<?php echo $avatar;?>" style="width:200px;height:200px;" alt="card image">
                 </figure>
                 <hr>
                 <h4><?php echo $_SESSION['username'];?></h4>
@@ -53,9 +53,6 @@
                     All Posts
                     <hr> 
                 </h1>   
-
-
-
                         <?php 
                             while($post = mysqli_fetch_assoc($posts_result))
                             {
@@ -65,11 +62,8 @@
                             $category = $post['category'];
                             $featured_image = $post['featured_image'];
                         ?>
-
-
                 <div class="proj-content">
                     <div class="row post-box"> 
-
                         <div class="col-md-3">
                             <div class="post-icon">
                                 <img style="height:60%;width:100%" src="<?php echo $featured_image?>">
