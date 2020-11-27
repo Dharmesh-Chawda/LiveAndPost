@@ -22,7 +22,7 @@ html,body {
     color: #fff;
     text-transform: uppercase;
     position: relative;
-    background-color: rgb(45, 255, 115);
+    background-color: rgb(66, 132, 231);
 }
 
 .dash-head
@@ -50,10 +50,12 @@ html,body {
     color: rgba(115, 118, 253,0.7);
 }
 
-.post-tit
+.log-head ,.reg-head , .ed-head
 {
-    font-size: 60px;
+    font-size: 40px;
+    color: rgba(115, 118, 253,0.7);
 }
+
 
 .card
 {
@@ -120,7 +122,6 @@ html,body {
     -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: white;
-    height: relative;
     
   }
   .proj-content:hover {
@@ -129,24 +130,17 @@ html,body {
     box-shadow:0 8px 16px 0 rgba(0, 0, 0, 0.2);  
   }
   
-
-    .event-listing
-    {
-        line-height: 1;
-        padding: 20px 10px;
-        margin-bottom: 20px;
-    }
   
-  .event-icon
+  .post-icon
   {
-        height: 60%;
+        height: 100%;
         width: 100%;
         text-align: center;
         padding-top: 25px;
         padding-left: 15px;
   }
 
-  .event-title
+  .post-title
   {
       font-size: 48px;
       font-weight: bold;
@@ -154,13 +148,13 @@ html,body {
       color: rgb(71, 120, 255);
   }
          
-      .event-listing-details
-      {
+    .post-listing-details
+    {
         padding-left: 2em;
-        
-      }
 
-    .event-description
+    }
+
+    .post-description
     {
         line-height: 1.5;
         margin-bottom: 1.5em;
@@ -168,37 +162,16 @@ html,body {
         text-overflow: ellipsis;
     }
   
-        .event-date {
-          padding-right: 1em;
-          padding-bottom: 20px;
-        }
+    .post-date
+    {
+        padding-right: 1em;
+        padding-bottom: 20px;
+    }
 
-        .proj-content
-        {
-            background-color: #a9dcf0;
-            box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-            margin-left: 10px;
-            margin-right: 10px;
-            border-radius: 15px;
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
-
-
-.post-box
-{
-}
-
-
-
-
-
-
-
-
-
-
-
+    .post-box
+    {
+        margin-bottom: 25px;
+    }
 
 
 #footer
@@ -285,3 +258,43 @@ html,body {
 {    
     color:#a0cfeb;
 }
+
+    .user-box
+    {
+        -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: white;
+        margin-bottom: 10px;
+        padding: 20px 10px;
+
+    }
+  
+    #users
+    {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        list-style-type: none;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+   
+    .user-icon
+    {
+        text-align: center;
+        height:130px;
+        width:130px;
+        border-radius:50%
+    }
+         
+    .user-listing-details
+    {
+        border-left: 2px solid black;
+        padding-left: 2em;
+        height: 130px;
+    }
+    .user-description
+    {
+        line-height: 1.5;
+        margin-bottom: 1.5em;
+    }
+  

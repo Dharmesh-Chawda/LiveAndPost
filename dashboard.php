@@ -54,106 +54,70 @@
                     All Posts
                     <hr> 
                 </h1>   
-                        
-                <?php 
-                while($post = mysqli_fetch_assoc($posts_result)){
-                $id = $post['id'];
-                $title = $post['title'];
-                $description = $post['description'];
-                $category = $post['category'];
-                $featured_image = $post['featured_image'];
-                ?>
-
-                <div class="row"  style="margin:10px 50px;">
-                    <div class="col-lg-3">
-                        <img style="width: 100%;height:60%;" src="<?php echo $featured_image?>">
-                    </div>
-                    <div class="col-lg-9">
-                          <h1 class="post-tit"><a href=""><?php echo $title?></a></h1>
-                          <p><?php echo $description?></p>  
-                          <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a><br><br>
-                          <div class="row">
-                              <div class="col-lg-1">
-                                  <a class="btn btn-primary" href=view.php?id=<?php echo $id?>>View</a>
-                              </div>
-                              <?php if(isset($_SESSION['username']) && $_SESSION['user_role']==1):?>
-                                <div class="col-lg-1">
-                                    <a class="btn btn-primary" href=edit.php?id=<?php echo $id?>>Edit</a>
-                                </div>
-                                <div class="col-lg-1">
-                                    <a class="btn btn-primary" href=delete.php?id=<?php echo $id?>>Delete</a>
-                                </div>
-                              <?php endif; ?>
-                          </div>
-                    </div>
-                </div>
 
 
-    <div class="proj-content">
-                <div class="row post-box">
 
-                  <div class="col-md-3">
-                    <div class="event-icon">
-                        <img style="height:60%;width:100%" src="<?php echo $featured_image?>">
-                    </div>
-                  </div>
+                        <?php 
+                            while($post = mysqli_fetch_assoc($posts_result))
+                            {
+                            $id = $post['id'];
+                            $title = $post['title'];
+                            $description = $post['description'];
+                            $category = $post['category'];
+                            $featured_image = $post['featured_image'];
+                        ?>
 
-                  <div class="col-md-9">
 
-                    <div class="event-listing-details">
-                        <h4 class="event-title">
-                            <a><?php echo $title?></a>
-                        </h4>
-                        <div class="event-description">
-                            <p><?php echo $description?></p>
-                        </div>
-                        <div class="event-date">
-                        <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a><br><br>
+                <div class="proj-content">
+                    <div class="row post-box"> 
 
-                            <div class="row">
-                                <div class="col-lg-1">
-                                    <a class="btn btn-primary" href=view.php?id=<?php echo $id?>>View</a>
-                                </div>
-                                <?php if(isset($_SESSION['username']) && $_SESSION['user_role']==1):?>
-                                <div class="col-lg-1">
-                                    <a class="btn btn-primary" href=edit.php?id=<?php echo $id?>>Edit</a>
-                                </div>
-                                <div class="col-lg-1">
-                                    <a class="btn btn-primary" href=delete.php?id=<?php echo $id?>>Delete</a>
-                                </div>
-                                <?php endif; ?>
+                        <div class="col-md-3">
+                            <div class="post-icon">
+                                <img style="height:60%;width:100%" src="<?php echo $featured_image?>">
                             </div>
+                        </div>
+
+                        <div class="col-md-9">
+
+                            <div class="post-listing-details">
+                                <h4 class="post-title">
+                                    <a><?php echo $title?></a>
+                                </h4>
+                                <div class="post-description">
+                                    <p><?php echo substr($description,0,300)."...";?></p>
+                                </div>
+                                <div class="post-date">
+                                <a href=""><a href=""><i class="fa fa-bookmark"></i>&nbsp;<?php echo $category?></a><br><br>
+
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            <a class="btn btn-primary" href=view.php?id=<?php echo $id?>>View</a>
+                                        </div>
+                                        <?php if(isset($_SESSION['username']) && $_SESSION['user_role']==1):?>
+                                        <div class="col-lg-1">
+                                            <a class="btn btn-primary" href=edit.php?id=<?php echo $id?>>Edit</a>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <a class="btn btn-primary" href=delete.php?id=<?php echo $id?>>Delete</a>
+                                        </div>
+                                        <?php endif; ?>
+                                    </div>
 
 
-                      </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
                     </div>
-                  </div>
-
                 </div>
 
             </div>
-
-        </div>
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <hr>
                 <?php
             }
         }
     ?>
+
     
 <?php include("./inc/footer.php") ?>
 
